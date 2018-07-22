@@ -14,4 +14,7 @@ public class LiuAnUtils {
             libContext = context;
         }
     }
+    public static Context getContext(){
+        return libContext;
+    }
 }

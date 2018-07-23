@@ -41,7 +41,7 @@ publish {
     publishVersion = '1.0.0'    //compile引用时的第3部分版本号
     desc = 'this is my first library'//d项目描述
 //    repoName="ycjiang"
-    website = '' //github 托管地址
+    website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }
 tasks.withType(Javadoc) {
     options {

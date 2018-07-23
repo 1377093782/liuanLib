@@ -3,13 +3,13 @@ apply plugin: 'com.novoda.bintray-release'
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 26
 
 
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -22,8 +22,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
-
 
 
     buildTypes {
@@ -40,7 +38,7 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.0.1'    //compile引用时的第3部分版本号
+    publishVersion = '1.0.2'    //compile引用时的第3部分版本号
     desc = 'add some Methed'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
@@ -59,10 +57,13 @@ tasks.withType(Javadoc) {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.google.firebase:firebase-core:16.0.0'
 
+    api 'com.umeng.sdk:common:latest.integration'
+    api 'com.umeng.sdk:analytics:latest.integration'
 
 }

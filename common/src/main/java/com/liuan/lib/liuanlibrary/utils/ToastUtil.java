@@ -115,7 +115,13 @@ public class ToastUtil
             Toast.makeText(context, stringResId, duration).show();
     }
 
-
+    public static void show( int stringResId, int duration)
+    {
+        if (!isShow){
+            return;
+        }
+        Toast.makeText(LiuAnUtils.getContext(), stringResId, duration).show();
+    }
     /**
      * 强大的吐司，能够连续弹的吐司
      * @param context 上下文

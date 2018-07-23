@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="MainActivityAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">#000</item>
+    </style>
+
+
+</resources>

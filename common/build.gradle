@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
+
+
 android {
     compileSdkVersion 28
 
@@ -38,8 +40,8 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.0.0'    //compile引用时的第3部分版本号
-    desc = 'this is my first library'//d项目描述
+    publishVersion = '1.0.1'    //compile引用时的第3部分版本号
+    desc = 'add some Methed'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }
@@ -48,8 +50,11 @@ tasks.withType(Javadoc) {
         encoding "UTF-8"
         charSet 'UTF-8'
         links "http://docs.oracle.com/javase/7/docs/api"
+
     }
+    options.addStringOption('Xdoclint:none', '-quiet')
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

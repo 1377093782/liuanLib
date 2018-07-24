@@ -1,38 +1,55 @@
 package com.lib.liuan;
 
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import com.liuan.lib.liuanlibrary.utils.AesUtil;
 import com.liuan.lib.liuanlibrary.utils.LiuAnUtils;
-import com.liuan.lib.liuanlibrary.utils.LogUtils;
-import com.liuan.lib.liuanlibrary.utils.OSUtils;
 import com.liuan.lib.liuanlibrary.utils.ToastUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
+
+
+    @BindView(R.id.iv)
+    ImageView iv;
+    @BindView(R.id.iv2)
+    ImageView iv2;
+    @BindView(R.id.mian)
+    LinearLayout mian;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LiuAnUtils.init(this,"");
+        ButterKnife.bind(this);
 
-        findViewById(R.id.tv_test).setOnClickListener(new View.OnClickListener() {
-            int i = 0;
-
-            @Override
-            public void onClick(View view) {
-                ToastUtil.showToast(MainActivity.this, "" + (--i));
-            }
-        });
-//获取手机是不是MIUI  MIUI版本  目前兼容华为  小米 魅族 可能新手机检测的不是很准确
-
-        String type = OSUtils.getRomType().toString();
-        //ROM 版本号
-        String systemProperty = OSUtils.getSystemProperty();
+        LiuAnUtils.init(this, "");
 
 
+    }
+
+
+    private void initClick() {
+//        GlideUtils.setImage(this, "http://img5.imgtn.bdimg.com/it/u=2984724874,1496605649&fm=27&gp=0.jpg", iv, false);
+    }
+
+    @OnClick({R.id.iv, R.id.iv2, R.id.mian})
+    public void onViewClicked(View view) {
+        initClick();
+        ToastUtil.showToast(this,"12345");
+        switch (view.getId()) {
+            case R.id.iv:
+                break;
+            case R.id.iv2:
+                break;
+            case R.id.mian:
+                break;
+        }
     }
 }

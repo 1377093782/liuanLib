@@ -141,6 +141,34 @@ public class ToastUtil
         toast.show();
     }
 
+    public static void showToast(String text){
+        if(!isShow){
+            return;
+        }
+        if(toast==null){
+            //如果等于null，则创建
+            toast = Toast.makeText(LiuAnUtils.getContext(), text, Toast.LENGTH_SHORT);
+        }else {
+            //如果不等于空，则直接将text设置给toast
+            toast.setText(text);
+        }
+        toast.show();
+    }
+
+    public static void showToast(int textResId){
+        if(!isShow){
+            return;
+        }
+        if(toast==null){
+            //如果等于null，则创建
+            toast = Toast.makeText(LiuAnUtils.getContext(), textResId, Toast.LENGTH_SHORT);
+        }else {
+            //如果不等于空，则直接将text设置给toast
+            toast.setText(textResId);
+        }
+        toast.show();
+    }
+
 
 
 

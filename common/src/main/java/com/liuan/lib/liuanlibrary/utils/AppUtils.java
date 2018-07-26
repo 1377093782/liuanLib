@@ -1,13 +1,17 @@
 package com.liuan.lib.liuanlibrary.utils;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
@@ -19,11 +23,113 @@ import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DevicesInfoUtils {
+public class AppUtils {
+
+    /**
+     * 获取包名
+     * @param context
+     * @return
+     */
+    public static String getPackageName(Context context){
+        return context.getPackageName();
+    }
+
+    /**
+     * 获取VersionName(版本名称)
+     * @param context
+     * @return
+     * 失败时返回""
+     */
+    public static String getVersionName(Context context){
+        PackageManager packageManager = getPackageManager(context);
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(context), 0);
+            return packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 获取VersionCode(版本号)
+     * @param context
+     * @return
+     * 失败时返回-1
+     */
+    public static int getVersionCode(Context context){
+        PackageManager packageManager = getPackageManager(context);
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(context), 0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    /**
+     * 获取所有安装的应用程序,不包含系统应用
+     * @param context
+     * @return
+     */
+    public static List<PackageInfo> getInstalledPackages(Context context){
+        PackageManager packageManager = getPackageManager(context);
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
+        List<PackageInfo> packageInfoList  = new ArrayList<PackageInfo>();
+        for(int i=0; i < packageInfos.size();i++){
+            if ((packageInfos.get(i).applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                packageInfoList.add(packageInfos.get(i));
+            }
+        }
+        return packageInfoList;
+    }
+
+    /**
+     * 获取应用程序的icon图标
+     * @param context
+     * @return
+     * 当包名错误时，返回null
+     */
+    public static Drawable getApplicationIcon(Context context){
+        PackageManager packageManager = getPackageManager(context);
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(context), 0);
+            return packageInfo.applicationInfo.loadIcon(packageManager);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 启动安装应用程序
+     * @param activity
+     * @param path	应用程序路径
+     */
+    public static void installApk(Activity activity, String path){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(new File(path)),
+                "application/vnd.android.package-archive");
+        activity.startActivity(intent);
+    }
+
+    /**
+     * 获取PackageManager对象
+     * @param context
+     * @return
+     */
+    private static PackageManager getPackageManager(Context context){
+        return context.getPackageManager();
+    }
+
+
     /*获取cpu 核心数*/
     public static String getNumCores() {
         // Private Class to display only CPU devices in the directory listing
@@ -75,7 +181,11 @@ public class DevicesInfoUtils {
 
     }
 
-    // 获取CPU最大频率（单位KHZ）
+    /**
+     *
+     * 获取CPU最大频率（单位KHZ）
+     * @return
+     */
 
     // "/system/bin/cat" 命令行
 

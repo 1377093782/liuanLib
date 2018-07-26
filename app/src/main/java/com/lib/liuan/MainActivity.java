@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        LiuAnUtils.init(this, "");
+        LiuAnUtils.init(this, "586e250999f0c70cdb000ef8");
 
 
     }

@@ -15,6 +15,24 @@ public class LiuAnUtils {
     private static Context libContext;
     private static boolean isUmStart = false;
 
+
+    /**
+     * 初始化插件
+     *
+     * @param context  上下文
+     *
+     */
+    public static void init(Context context) {
+        if (libContext == null) {
+            libContext = context;
+        }
+
+
+
+
+    }
+
+
     /**
      * 初始化插件
      *

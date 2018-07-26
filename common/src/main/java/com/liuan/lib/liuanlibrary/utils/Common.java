@@ -23,41 +23,12 @@ import java.io.File;
 import java.io.FileReader;
 
 /**
- * Created by EdwinWu on 2016/11/7.
+ *
  */
 public class Common {
 
 
-    public static void feedBack(Context context,String appName,String email) {
-        Intent data = new Intent(Intent.ACTION_SENDTO);
-        data.setData(Uri.parse("mailto:"+email));
-        data.putExtra(Intent.EXTRA_SUBJECT, appName+":");
-        data.putExtra(Intent.EXTRA_TEXT, "");
-        try {
-            startActivity(context, data);
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public static void version(Context context,String versionStr) {
-        PackageManager packageManager = context.getPackageManager();
-        String packageName = context.getPackageName();
-        try {
-            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
-            String version = packageInfo.versionName;
-
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            String label = applicationInfo.loadLabel(packageManager).toString();
-
-            new AlertDialog.Builder(context, R.style.MainActivityAlertDialog)
-                    .setTitle(versionStr)
-                    .setMessage(label + " (" + version + ")")
-                    .show();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static boolean startGooglePlayByMarketUrl(Context context, String packageName, String zui) {
         if ((packageName == null) || (packageName.length() == 0)) {
@@ -72,9 +43,25 @@ public class Common {
         intent.setPackage("com.android.vending");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(market));
-        return startActivity(context, intent);
+        return startActivity_(context, intent);
     }
-
+    public static boolean startActivity_(Context context, Intent intent) {
+        if ((context == null) || (intent == null))
+            return false;
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException activityNotFoundException) {
+            activityNotFoundException.printStackTrace();
+            return false;
+        } catch (IllegalArgumentException illegalArgumentException) {
+            illegalArgumentException.printStackTrace();
+            return false;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+        return true;
+    }
     public static void startGooglePlayByHttpUrl(Context context, String packageName, String zui) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -103,23 +90,7 @@ public class Common {
         return bInstalled;
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        if ((context == null) || (intent == null))
-            return false;
-        try {
-            context.startActivity(intent);
-        } catch (ActivityNotFoundException activityNotFoundException) {
-            activityNotFoundException.printStackTrace();
-            return false;
-        } catch (IllegalArgumentException illegalArgumentException) {
-            illegalArgumentException.printStackTrace();
-            return false;
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return false;
-        }
-        return true;
-    }
+
 
 
 

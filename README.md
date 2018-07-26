@@ -49,23 +49,36 @@ api "com.github.bumptech.glide:okhttp3-integration:4.5.0"
 
 ### 目录大纲 
 
-- AesUtils  对字符串的加密和解密
-- Common  一些常用的类反馈邮箱 版本号
-- DevicesInfoUtils 手机的各项信息
-- FileUtils  设置SD卡路径
-- Firebase 对于Firbase 统计的封装
-- LiuanUtils 初始化程序 是否设置友盟统计
-- LogUtils 对log的封装 debug 能看 relase 不能看
-- OsUtils 获取手机是不是MIUI 和MIUI版本 支持小米 华为 魅族
-- PermisstionUtil 安卓6.0权限请求工具类
-- RecordCollection 记录自定义事件的工具类 友盟需要申请才可以Firbase不用
-- SpUtils 对ShardedPreferences 的封装
-- TextUtils 对获取字符串的封装 往本地文件追加 删除 获取行内容
-- TimeUtils 对SimpleDateFormat 的转换
-- ToastUtils 对Toast的封装
-- NetworkUtils 网络工具类的封装
-- GlideUtils glide加载图片
-- IntentUtils intent简写
+1. JsonUtil
+2. NetworkUtil
+3. RecordCollection
+4. Firebase
+5. AppUtils
+6. ToastUtil
+7. FileUtils
+8. HttpUtil
+9. StringUtil
+10. XMLUtil
+11. BitmapUtil
+12. IntentUtils
+13. OSUtils
+14. PhoneUtil
+15. ColorsUtil
+16. TimeUtils
+17. DateUtil
+18. PermisstionUtil
+19. Common
+20. LiuAnUtils
+21. GlideUtils
+22. ReflectUtil
+23. TextUtils
+24. MeasureUtil
+25. AesUtil
+26. SpUtils
+27. ExitActivityUtil
+28. ScreenUtil
+29. ShortCutUtil
+30. LogUtils
 
 ### 使用方法
 

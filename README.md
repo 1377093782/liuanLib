@@ -10,20 +10,22 @@
 
 [bintray地址](https://bintray.com/mp624183768/liuan)
 
-为了更好的使用 我已经添加了n多个权限
+为了更好的使用 请按需添加多个权限
 
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-    <!-- um必须的权限 -->
+
+//友盟
+    <!-- 必须的权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- um推荐的权限 -->
+    <!-- 推荐的权限 -->
     <!-- 添加如下权限，以便使用更多的第三方SDK和更精准的统计数据 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -34,15 +36,12 @@
 ### 依赖
 
 ```
-api 'com.google.firebase:firebase-core:16.0.0'
-
-api 'com.umeng.sdk:common:latest.integration'
-api 'com.umeng.sdk:analytics:latest.integration'
-
-api 'com.github.bumptech.glide:glide:4.7.1'
-annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-
-api "com.github.bumptech.glide:okhttp3-integration:4.5.0"
+    api 'com.google.firebase:firebase-core:16.0.0'
+    api 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api 'com.google.code.gson:gson:2.8.5'
 ```
 
 这些依赖不需要再次添加了

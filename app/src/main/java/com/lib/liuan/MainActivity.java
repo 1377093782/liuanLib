@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.liuan.lib.liuanlibrary.utils.LiuAnUtils;
+import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
 import com.liuan.lib.liuanlibrary.utils.ToastUtil;
 
 import butterknife.BindView;
@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        LiuAnUtils.init(this, "586e250999f0c70cdb000ef8");
+        LiuAnUtils.init(this);
 
 
     }

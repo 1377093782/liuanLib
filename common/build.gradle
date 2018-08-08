@@ -38,8 +38,8 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.0.4'    //compile引用时的第3部分版本号
-    desc = '目前已经29个工具类 还在不断的完善当中'//d项目描述
+    publishVersion = '1.0.5'    //compile引用时的第3部分版本号
+    desc = '解耦 权限 用户想添加什么权限，添加什么权限'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }
@@ -59,11 +59,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api 'com.google.firebase:firebase-core:16.0.0'
-    api 'com.umeng.sdk:common:latest.integration'
-    api 'com.umeng.sdk:analytics:latest.integration'
     api 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    api 'com.google.code.gson:gson:2.8.5'
+
 }

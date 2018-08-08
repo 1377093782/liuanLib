@@ -1,7 +1,8 @@
 package com.liuan.lib.liuanlibrary.utils;
 
-import android.content.Context;
 import android.content.Intent;
+
+import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
 
 public class IntentUtils {
     public static void onKeyHome() {

@@ -10,7 +10,7 @@
 
 [bintray地址](https://bintray.com/mp624183768/liuan)
 
-为了更好的使用 请按需添加多个权限
+为了更好的使用 我没有添加任何权限  请按需添加多个权限
 
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -36,15 +36,31 @@
 ### 依赖
 
 ```
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api 'com.google.firebase:firebase-core:16.0.0'
     api 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     api 'com.google.code.gson:gson:2.8.5'
+
+    api 'com.squareup.okhttp3:okhttp:3.3.1'
 ```
 
 这些依赖不需要再次添加了
+
+ 如果需要跳过这些依赖可以
+
+```
+ implementation ('com.liuan:common:1.0.6') {
+       exclude group: 'com.android.support', module: 'appcompat-v7'
+   }
+```
+
+
 
 ### 目录大纲 
 
@@ -78,6 +94,11 @@
 28. ScreenUtil
 29. ShortCutUtil
 30. LogUtils
+31. ToolbarUtils
+32. ShortCutUtil
+33. OKHttpUtils
+34. ListViewAnimUtils
+35. ClolorAnimUtils
 
 ### 使用方法
 
@@ -87,13 +108,13 @@
 
 moudle级别 build.gradle->android->dependencies
 
-加上 implementation 'com.liuan:common:1.0.1' 这个包
+加上 implementation 'com.liuan:common:1.0.6' 这个包
 
 程序最先执行的地方
 
 Application->onCreate() or MainActivity ->onCreate() 下
 
-LiuanUtils.init(this,"")
+LiuanUtils.init(this)
 
 
 

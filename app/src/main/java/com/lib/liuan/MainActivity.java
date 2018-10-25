@@ -2,12 +2,18 @@ package com.lib.liuan;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
+import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
+import com.liuan.lib.liuanlibrary.utils.LogUtils;
+import com.liuan.lib.liuanlibrary.utils.OKHttpUtils;
 import com.liuan.lib.liuanlibrary.utils.ToastUtil;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,10 +22,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.iv)
-    ImageView iv;
-    @BindView(R.id.iv2)
-    ImageView iv2;
+    @BindView(R.id.am_user_ok)
+    Button amUserOk;
     @BindView(R.id.mian)
     LinearLayout mian;
 
@@ -34,21 +38,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void initClick() {
-//        GlideUtils.setImage(this, "http://img5.imgtn.bdimg.com/it/u=2984724874,1496605649&fm=27&gp=0.jpg", iv, false);
+    @OnClick(R.id.am_user_ok)
+    public void onViewClicked() {
+//        {
+//            "isShowCloseAd": true,
+//                "clickNextTime": 40
+//        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                showNetWork();
+            }
+        }).start();
     }
 
-    @OnClick({R.id.iv, R.id.iv2, R.id.mian})
-    public void onViewClicked(View view) {
-        initClick();
-        ToastUtil.showToast(this,"12345");
-        switch (view.getId()) {
-            case R.id.iv:
-                break;
-            case R.id.iv2:
-                break;
-            case R.id.mian:
-                break;
+    private void showNetWork() {
+        String httpUrl = "http://www.wanandroid.com/tools/mockapi/11904/freereader";
+
+        try {
+            String res = OKHttpUtils.loadStringFromUrl(httpUrl);
+            if (TextUtils.isEmpty(res)) {
+                return;
+            }
+            JSONObject jsonObj = new JSONObject(res);
+            if (jsonObj.has("isShowCloseAd")) {
+                boolean isShowCloseAd = jsonObj.getBoolean("isShowCloseAd");
+
+                LogUtils.e(isShowCloseAd+"");
+            }
+
+            if (jsonObj.has("clickNextTime")) {
+                int clickNextTime = jsonObj.getInt("clickNextTime");
+                setTitle(clickNextTime+"");
+                LogUtils.e(clickNextTime+"");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            LogUtils.e(e.toString());
         }
+
     }
 }

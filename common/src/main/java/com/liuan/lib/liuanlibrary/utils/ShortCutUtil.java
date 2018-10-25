@@ -26,7 +26,7 @@ public class ShortCutUtil {
      * @param activity Activity
      * @return 是否存在桌面图标
      */
-    public static boolean hasShortcut(Activity activity) {
+    public static boolean hasShortcut(Activity activity,int nameRes) {
         boolean isInstallShortcut = false;
         ContentResolver cr = activity.getContentResolver();
         String AUTHORITY = "com.android.launcher.settings";
@@ -34,7 +34,7 @@ public class ShortCutUtil {
                 + "/favorites?notify=true");
         Cursor c = cr.query(CONTENT_URI,
                 new String[]{"title", "iconResource"}, "title=?",
-                new String[]{activity.getString(R.string.app_name).trim()},
+                new String[]{activity.getString(nameRes)},
                 null);
         if (c != null && c.getCount() > 0) {
             isInstallShortcut = true;
@@ -78,7 +78,7 @@ public class ShortCutUtil {
         Intent shortcut = new Intent(
                 "com.android.launcher.action.UNINSTALL_SHORTCUT");
         shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME,
-                activity.getString(R.string.app_name));
+                activity.getString(nameRes));
         String appClass = activity.getPackageName() + "."
                 + activity.getLocalClassName();
         ComponentName cn = new ComponentName(activity.getPackageName(), appClass);

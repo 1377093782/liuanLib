@@ -11,15 +11,10 @@
 
  />
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/iv2"
-        android:background="@android:color/black"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<Button
+    android:text="@string/uers_net_work"
+    android:layout_width="match_parent"
+    android:id="@+id/am_user_ok"
+    android:layout_height="wrap_content" />
 
 </LinearLayout>

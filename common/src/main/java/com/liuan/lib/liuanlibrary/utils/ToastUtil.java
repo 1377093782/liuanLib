@@ -90,15 +90,21 @@ public class ToastUtil
 
     /**
      * 自定义显示Toast时间
+     *  @param message 信息
      *
-     * @param context 上下文
-     * @param message 信息
-     * @param duration 显示时间
      */
-    public static void show(Context context, CharSequence message, int duration)
-    {
+    public static void show(CharSequence message) {
         if (isShow)
-            Toast.makeText(context, message, duration).show();
+            Toast.makeText(LiuAnUtils.getContext(), message, Toast.LENGTH_LONG).show();
+    }
+    /**
+     * 自定义显示Toast时间
+     *  @param message 信息
+     *
+     */
+    public static void show(CharSequence message,int duration) {
+        if (isShow)
+            Toast.makeText(LiuAnUtils.getContext(), message, duration).show();
     }
 
     /**

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LiuAnLib</string>
+    <string name="uers_net_work">网络请求使用</string>
 </resources>

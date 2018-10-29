@@ -11,7 +11,7 @@ import com.liuan.lib.liuanlibrary.R;
  * Created by liuan on 2017/5/18.
  */
 
-public class ClolorAnimUtils {
+public class ColorAnimUtils {
     public static ObjectAnimator changeColor(final View v, final int Time,int colorOneId,int colorTwoId) {
 //
         int drawingCacheBackgroundColor = v.getDrawingCacheBackgroundColor();

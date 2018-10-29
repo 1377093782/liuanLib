@@ -55,7 +55,7 @@
  如果需要跳过这些依赖可以
 
 ```
- implementation ('com.liuan:common:1.0.6') {
+ implementation ('com.liuan:common:1.0.9') {
        exclude group: 'com.android.support', module: 'appcompat-v7'
    }
 ```
@@ -64,41 +64,39 @@
 
 ### 目录大纲 
 
-1. JsonUtil
-2. NetworkUtil
-3. RecordCollection
-4. Firebase
-5. AppUtils
-6. ToastUtil
-7. FileUtils
-8. HttpUtil
-9. StringUtil
-10. XMLUtil
-11. BitmapUtil
-12. IntentUtils
-13. OSUtils
-14. PhoneUtil
-15. ColorsUtil
-16. TimeUtils
-17. DateUtil
-18. PermisstionUtil
-19. Common
-20. LiuAnUtils
-21. GlideUtils
-22. ReflectUtil
-23. TextUtils
-24. MeasureUtil
-25. AesUtil
-26. SpUtils
-27. ExitActivityUtil
-28. ScreenUtil
-29. ShortCutUtil
-30. LogUtils
-31. ToolbarUtils
-32. ShortCutUtil
-33. OKHttpUtils
-34. ListViewAnimUtils
-35. ClolorAnimUtils
+1. JsonUtil---->json 串操作
+2. NetworkUtil---->网络状态判断
+3. RecordCollection---->日志收集
+4. Firebase---->日志收集
+5. AppUtils---->获取app的信息 版本号 cpu型号
+6. ToastUtil---->吐司
+7. FileUtils---->文件的删除 创建 设置sd卡目录
+8. HttpUtil---->网络请求get和post 同步和异步
+9. LiuHaiUtils---->判断是否是刘海屏
+10. XMLUtil---->xml 和 Object类互换
+11. BitmapUtil---->从各种格式总获取Bitmap
+12. IntentUtils---->页面跳转 按下home键盘
+13. OSUtils---->判断厂商小米 魅族 华为-尚未完善
+14. PhoneUtil---->发送短信 是否为连击 获取手机型号 获取手机品牌 打开相机 打开相册
+15. ColorsUtil---->返回一些十六进制颜色
+16. ColorAnimUtils---->颜色变化工具类
+17. DateUtil---->时间格式化 年月日
+18. PermisstionUtil---->android6.0权限工具类
+19. SettingUtils----> 邮箱反馈 version(弹框) google市场五星好评 分享自己的app
+20. LiuAnUtils---->初始化上下文
+21. GlideUtils---->GlideUtils方法二次封装
+22. ReflectUtil---->反射工具类
+23. TextUtils---->对文本文件的一些操作
+24. MeasureUtil---->设置布局 list gridview 宽高
+25. AesUtil---->加密算法
+26. SpUtils---->SharedPreferences 操作工具类
+27. ExitActivityUtil---->双击退出界面
+28. ScreenUtil---->获取屏幕的宽高 px 和dp的转换 获取屏幕截图 包含状态栏和不包含状态栏
+29. ShortCutUtil---->桌面快捷方式操作工具类
+30. LogUtils---->日志操作工具类
+31. ToolbarUtils---->toolbar 操作工具类
+32. ListViewAnimUtils---->listView 加载动画和退出动画
+33. OKHttpUtils---->okhtttp的封装使用，详情请看实例中的演示
 
 ### 使用方法
 
@@ -108,7 +106,7 @@
 
 moudle级别 build.gradle->android->dependencies
 
-加上 implementation 'com.liuan:common:1.0.6' 这个包
+加上 implementation 'com.liuan:common:1.0.9' 这个包
 
 程序最先执行的地方
 

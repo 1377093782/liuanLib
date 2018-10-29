@@ -3,34 +3,38 @@ package com.lib.liuan;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
 import com.liuan.lib.liuanlibrary.utils.LogUtils;
 import com.liuan.lib.liuanlibrary.utils.OKHttpUtils;
-import com.liuan.lib.liuanlibrary.utils.ToastUtil;
+import com.liuan.lib.liuanlibrary.utils.PhoneUtil;
+import com.liuan.lib.liuanlibrary.utils.SettingUtils;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    @BindView(R.id.am_user_ok)
-    Button amUserOk;
-    @BindView(R.id.mian)
-    LinearLayout mian;
+    /**
+     * 网络请求使用
+     */
+    private Button mAmUserOk;
+    /**
+     * 网络请求使用
+     */
+    private Button mAmFiveStar;
+    private LinearLayout mMian;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
         ButterKnife.bind(this);
         LiuAnUtils.init(this);
 
@@ -38,20 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.am_user_ok)
-    public void onViewClicked() {
-//        {
-//            "isShowCloseAd": true,
-//                "clickNextTime": 40
-//        }
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                showNetWork();
-            }
-        }).start();
-    }
+
 
     private void showNetWork() {
         String httpUrl = "http://www.wanandroid.com/tools/mockapi/11904/freereader";
@@ -65,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
             if (jsonObj.has("isShowCloseAd")) {
                 boolean isShowCloseAd = jsonObj.getBoolean("isShowCloseAd");
 
-                LogUtils.e(isShowCloseAd+"");
+                LogUtils.e(isShowCloseAd + "");
             }
 
             if (jsonObj.has("clickNextTime")) {
                 int clickNextTime = jsonObj.getInt("clickNextTime");
-                setTitle(clickNextTime+"");
-                LogUtils.e(clickNextTime+"");
+                setTitle(clickNextTime + "");
+                LogUtils.e(clickNextTime + "");
             }
 
         } catch (Exception e) {
@@ -79,5 +71,31 @@ public class MainActivity extends AppCompatActivity {
             LogUtils.e(e.toString());
         }
 
+    }
+
+    private void initView() {
+        mAmUserOk = (Button) findViewById(R.id.am_user_ok);
+        mAmUserOk.setOnClickListener(this);
+        mAmFiveStar = (Button) findViewById(R.id.am_five_star);
+        mAmFiveStar.setOnClickListener(this);
+        mMian = (LinearLayout) findViewById(R.id.mian);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.am_user_ok:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showNetWork();
+                    }
+                }).start();                break;
+            case R.id.am_five_star:
+                SettingUtils.startGooglePlayByMarketUrl(this,"com.liuan.freereader");
+                break;
+        }
     }
 }

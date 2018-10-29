@@ -16,5 +16,10 @@
     android:layout_width="match_parent"
     android:id="@+id/am_user_ok"
     android:layout_height="wrap_content" />
+ <Button
+    android:text="@string/five_star"
+    android:layout_width="match_parent"
+    android:id="@+id/am_five_star"
+    android:layout_height="wrap_content" />
 
 </LinearLayout>

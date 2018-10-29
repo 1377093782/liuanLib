@@ -16,7 +16,7 @@ public class IntentUtils {
         LiuAnUtils.getContext().startActivity(intent);
     }
 
-    public static void fromA2BAddtask(Class cls) {
+    public static void fromA2BAddNewtask(Class cls) {
         Intent intent = new Intent(LiuAnUtils.getContext(), cls);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         LiuAnUtils.getContext().startActivity(intent);

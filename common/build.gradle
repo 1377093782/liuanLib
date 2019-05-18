@@ -39,8 +39,8 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.0.9'    //compile引用时的第3部分版本号
-    desc = '1.0.9  刘海屏幕适配工具类'//d项目描述
+    publishVersion = '1.1.0'    //compile引用时的第3部分版本号
+    desc = 'JsonUtils工具类解析完善 https://blog.csdn.net/mp624183768/article/details/90315474'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }

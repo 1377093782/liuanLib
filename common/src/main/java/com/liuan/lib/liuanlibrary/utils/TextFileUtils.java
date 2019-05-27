@@ -16,7 +16,7 @@ import java.io.OutputStreamWriter;
  * Created by liuan on 2018-07-05.
  */
 
-public class TextUtils {
+public class TextFileUtils {
     public static String getIdByText(int id){
        return   LiuAnUtils.getContext().getResources().getString(id);
     }

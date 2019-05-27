@@ -1,5 +1,8 @@
 package com.liuan.lib.liuanlibrary.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,8 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.res.AssetManager;
 
 import com.google.gson.Gson;
+import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
 
 
 /**
@@ -53,6 +59,27 @@ public class JsonUtil {
         }
     }
 
+    /**
+     * 获取AsssetsJson下Json的文件
+     * @param fileName   如 cityjson/citys.json 就是获取G:\android\hkwork\HuikeyunTeacher\common\src\main\assets\cityjson\citys.json文件下的
+     * @return
+     */
+    public String getAssetsJson(String fileName) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            AssetManager assetManager = LiuAnUtils.getContext().getAssets();
+            BufferedReader bf = new BufferedReader(new InputStreamReader(
+                    assetManager.open(fileName)));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
 
     /**
      * 将Json字符串转换成对应对象数组

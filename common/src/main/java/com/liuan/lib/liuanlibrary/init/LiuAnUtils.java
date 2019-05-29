@@ -3,6 +3,7 @@ package com.liuan.lib.liuanlibrary.init;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.liuan.lib.liuanlibrary.utils.Utils;
 
 
 public class LiuAnUtils {
@@ -23,10 +24,8 @@ public class LiuAnUtils {
     public static void init(Context context) {
         if (libContext == null) {
             libContext = context;
+            Utils.init(context);
         }
-
-
-
 
     }
 

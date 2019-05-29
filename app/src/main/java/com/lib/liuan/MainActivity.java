@@ -3,6 +3,7 @@ package com.lib.liuan;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import com.liuan.lib.liuanlibrary.utils.LogUtils;
 import com.liuan.lib.liuanlibrary.utils.OKHttpUtils;
 import com.liuan.lib.liuanlibrary.utils.PhoneUtil;
 import com.liuan.lib.liuanlibrary.utils.SettingUtils;
+import com.liuan.lib.liuanlibrary.utils.ToastUtils;
 
 import org.json.JSONObject;
 
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         ButterKnife.bind(this);
         LiuAnUtils.init(this);
-
 
     }
 

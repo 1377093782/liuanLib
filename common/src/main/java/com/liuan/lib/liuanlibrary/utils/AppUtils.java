@@ -305,11 +305,6 @@ public class AppUtils {
     }
 //    ym 获取渠道号AnalyticsConfig.getChannel(this)
 
-    public static String getSeesionOrPartId() {
-        long value = System.currentTimeMillis();
-        String base36 = Long.toString(value, 36);
-        return 0 + ":" + base36 + ":" + getRandomChar(32);
-    }
 
     public static String getVolume(Context context) {
         AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);

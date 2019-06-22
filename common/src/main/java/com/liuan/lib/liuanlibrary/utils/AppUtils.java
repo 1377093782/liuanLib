@@ -306,12 +306,6 @@ public class AppUtils {
 //    ym 获取渠道号AnalyticsConfig.getChannel(this)
 
 
-    public static String getVolume(Context context) {
-        AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        int maxVoluem = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        return (currentVolume * 100 / maxVoluem)+"%";
-    }
 
 
     /**

@@ -39,8 +39,8 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.1.3'    //compile引用时的第3部分版本号
-    desc = '更改toast 方法 删减apputils'//d项目描述
+    publishVersion = '1.1.4'    //compile引用时的第3部分版本号
+    desc = 'toast 新增RomUtils增加对oppo手机项目的toast使用'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }
@@ -68,5 +68,7 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.5'
 
     api 'com.squareup.okhttp3:okhttp:3.3.1'
+    api 'com.github.GrenderG:Toasty:1.4.2'
+
 
 }

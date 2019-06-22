@@ -7,7 +7,10 @@ buildscript {
         jcenter()
         mavenCentral()
         jcenter(){ url 'http://jcenter.bintray.com/'} //JCenter下载慢测试
-        maven { url "https://dl.bintray.com/mp624183768/liuan" }//审核前可使用
+        maven { url "https://jitpack.io" }
+        maven {
+            url "https://dl.bintray.com/mp624183768/liuan"
+        }//审核前可使用
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
@@ -22,7 +25,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://dl.bintray.com/mp624183768/liuan" }//审核前可使用
+        maven { url "https://jitpack.io" }
+        maven { url "https://dl.bintray.com/mp624183768/liuan"
+                 }//审核前可使用
     }
 }
 

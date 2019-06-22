@@ -29,6 +29,8 @@ import android.widget.Toast;
 
 import java.lang.reflect.Field;
 
+import es.dmoral.toasty.Toasty;
+
 /**
  * <pre>
  *     author: Blankj
@@ -111,6 +113,7 @@ public final class ToastUtils {
      * @param text The text.
      */
     public static void showShort(final CharSequence text) {
+
         show(text == null ? NULL : text, Toast.LENGTH_SHORT);
     }
 
@@ -245,26 +248,32 @@ public final class ToastUtils {
     }
 
     private static void show(final CharSequence text, final int duration) {
-        HANDLER.post(new Runnable() {
-            @SuppressLint("ShowToast")
-            @Override
-            public void run() {
-                cancel();
-                iToast = ToastFactory.makeToast(Utils.getApp(), text, duration);
-                final TextView tvMessage = iToast.getView().findViewById(android.R.id.message);
-                if (sMsgColor != COLOR_DEFAULT) {
-                    tvMessage.setTextColor(sMsgColor);
+        if (RomUtil.isOppo()) {
+            Toasty.normal(Utils.getApp(), text).show();
+        }else {
+            HANDLER.post(new Runnable() {
+                @SuppressLint("ShowToast")
+                @Override
+                public void run() {
+                    cancel();
+                    iToast = ToastFactory.makeToast(Utils.getApp(), text, duration);
+                    final TextView tvMessage = iToast.getView().findViewById(android.R.id.message);
+                    if (sMsgColor != COLOR_DEFAULT) {
+                        tvMessage.setTextColor(sMsgColor);
+                    }
+                    if (sMsgTextSize != -1) {
+                        tvMessage.setTextSize(sMsgTextSize);
+                    }
+                    if (sGravity != -1 || sXOffset != -1 || sYOffset != -1) {
+                        iToast.setGravity(sGravity, sXOffset, sYOffset);
+                    }
+                    setBg(tvMessage);
+                    iToast.show();
                 }
-                if (sMsgTextSize != -1) {
-                    tvMessage.setTextSize(sMsgTextSize);
-                }
-                if (sGravity != -1 || sXOffset != -1 || sYOffset != -1) {
-                    iToast.setGravity(sGravity, sXOffset, sYOffset);
-                }
-                setBg(tvMessage);
-                iToast.show();
-            }
-        });
+            });
+        }
+
+
     }
 
     private static void show(final View view, final int duration) {

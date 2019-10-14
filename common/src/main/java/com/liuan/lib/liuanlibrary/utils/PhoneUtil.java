@@ -1,23 +1,13 @@
 package com.liuan.lib.liuanlibrary.utils;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.liuan.lib.liuanlibrary.R;
-
+import androidx.appcompat.app.AlertDialog;
 
 
 /**

@@ -43,8 +43,8 @@
     api 'com.google.firebase:firebase-core:16.0.0'
     api 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    api 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     api 'com.google.code.gson:gson:2.8.5'
 
     api 'com.squareup.okhttp3:okhttp:3.3.1'

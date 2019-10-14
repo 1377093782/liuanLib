@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 
 

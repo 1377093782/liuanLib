@@ -39,8 +39,8 @@ publish {
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
     artifactId = 'common'     //compile引用时的第2部分项目名
-    publishVersion = '1.1.5'    //compile引用时的第3部分版本号
-    desc = '新增对androidX的支持'//d项目描述
+    publishVersion = '1.1.6'    //compile引用时的第3部分版本号
+    desc = '新增对65535方法的处理'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 }
@@ -69,6 +69,7 @@ dependencies {
 
     api 'com.squareup.okhttp3:okhttp:3.3.1'
     api 'com.github.GrenderG:Toasty:1.4.2'
+    api 'com.android.support:multidex:1.0.3'
 
 
 }

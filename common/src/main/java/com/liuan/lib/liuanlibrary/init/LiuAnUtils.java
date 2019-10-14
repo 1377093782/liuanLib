@@ -3,6 +3,8 @@ package com.liuan.lib.liuanlibrary.init;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.multidex.MultiDex;
+
 import com.liuan.lib.liuanlibrary.utils.Utils;
 
 
@@ -24,6 +26,9 @@ public class LiuAnUtils {
     public static void init(Context context) {
         if (libContext == null) {
             libContext = context;
+            //65535方法解决方案
+            MultiDex.install(context);
+            //为Toast 提供能力
             Utils.init(context);
         }
 

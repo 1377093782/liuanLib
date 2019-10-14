@@ -124,7 +124,6 @@ public class PhoneUtil {
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
         activity.startActivityForResult(intent, requestcode);
 
-
     }
 
 

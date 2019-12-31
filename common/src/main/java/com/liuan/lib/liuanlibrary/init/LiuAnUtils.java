@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import androidx.multidex.MultiDex;
 
+import com.liuan.lib.liuanlibrary.BuildConfig;
 import com.liuan.lib.liuanlibrary.utils.Utils;
 
 

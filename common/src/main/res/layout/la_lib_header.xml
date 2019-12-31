@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.liuan.lib.liuanlibrary.view.StatusBarHeightView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:use_type="use_padding_top">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="57dp"
+        android:layout_height="44dp"
+        android:layout_centerVertical="true"
+        android:paddingLeft="24dp"
+        android:paddingTop="14dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="14dp"
+        android:src="@mipmap/icon_back" />
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_width="wrap_content"
+        android:singleLine="true"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/color_363636_text_setting_main"
+        android:textSize="16sp" />
+</RelativeLayout>
+</com.liuan.lib.liuanlibrary.view.StatusBarHeightView>
+

@@ -11,6 +11,7 @@ import androidx.multidex.MultiDex;
 
 import com.liuan.lib.liuanlibrary.BuildConfig;
 import com.liuan.lib.liuanlibrary.utils.Utils;
+import com.tencent.mmkv.MMKV;
 
 
 public class LiuAnUtils {
@@ -39,6 +40,7 @@ public class LiuAnUtils {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             webviewSetPath(context);
         }
+
 
 
     }

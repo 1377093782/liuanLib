@@ -4,6 +4,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -16,33 +17,29 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        consumerProguardFiles 'consumer-rules.pro'
     }
-
-
     lintOptions {
         abortOnError false
     }
 
-
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
-
     }
+
 }
 publish {
     repoName = "liuan"//你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
     userOrg = 'mp624183768'      //bintray注册的用户名
     groupId = 'com.liuan'         //compile引用时的第1部分groupId
-    artifactId = 'common'     //compile引用时的第2部分项目名
+    artifactId = 'ads'     //compile引用时的第2部分项目名
     publishVersion = rootProject.ext.publishVersion   //compile引用时的第3部分版本号
     desc = rootProject.ext.desc//d项目描述
-//    repoName="ycjiang"
     website = rootProject.ext.website
+//    repoName="ycjiang"
 }
 tasks.withType(Javadoc) {
     options {
@@ -54,26 +51,13 @@ tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')
 }
 
-
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //noinspection GradleCompatible
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-
-    api 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-    api 'com.jakewharton:butterknife:10.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-    api 'com.google.code.gson:gson:2.8.6'
-
-    api 'com.squareup.okhttp3:okhttp:3.14.1'
-    api 'com.github.GrenderG:Toasty:1.4.2'
-    api 'com.android.support:multidex:1.0.3'
-    api 'com.tencent:mmkv:1.0.18'
-
-    api 'com.google.firebase:firebase-analytics:17.2.2'
-
-
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    api 'com.facebook.android:facebook-android-sdk:5.11.0'
+    api 'com.facebook.android:audience-network-sdk:5.6.0'
 }

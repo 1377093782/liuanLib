@@ -26,8 +26,7 @@ public class LiuAnUtils {
     /**
      * 初始化插件
      *
-     * @param context  上下文
-     *
+     * @param context 上下文
      */
     public static void init(Context context) {
         if (libContext == null) {
@@ -40,10 +39,11 @@ public class LiuAnUtils {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             webviewSetPath(context);
         }
-
+        MMKV.initialize(context);
 
 
     }
+
     @RequiresApi(api = 28)
     public static void webviewSetPath(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -55,7 +55,7 @@ public class LiuAnUtils {
         }
     }
 
-    public  static String getProcessName(Context context) {
+    public static String getProcessName(Context context) {
         if (context == null) return null;
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningAppProcessInfo processInfo : manager.getRunningAppProcesses()) {
@@ -65,8 +65,6 @@ public class LiuAnUtils {
         }
         return null;
     }
-
-
 
 
     public static Context getContext() {

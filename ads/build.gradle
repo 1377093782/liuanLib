@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+
+    }
+}
+publish {
+    repoName = "liuan"//你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
+    userOrg = 'mp624183768'      //bintray注册的用户名
+    groupId = 'com.anguomob'         //compile引用时的第1部分groupId
+    artifactId = 'ads'     //compile引用时的第2部分项目名
+    publishVersion = rootProject.ext.publishVersion   //compile引用时的第3部分版本号
+    desc = rootProject.ext.desc//d项目描述
+//    repoName="ycjiang"
+    website = rootProject.ext.website
+}
+tasks.withType(Javadoc) {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        links "http://docs.oracle.com/javase/7/docs/api"
+
+    }
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api 'com.facebook.android:audience-network-sdk:5.6.0'
+}

@@ -1,19 +1,19 @@
 package com.lib.liuan;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.liuan.lib.liuanlibrary.init.LiuAnUtils;
-import com.liuan.lib.liuanlibrary.utils.LogUtils;
-import com.liuan.lib.liuanlibrary.utils.OKHttpUtils;
-import com.liuan.lib.liuanlibrary.utils.SettingUtils;
+import com.anguomob.lib.init.LiuAnUtils;
+import com.anguomob.lib.utils.LogUtils;
+import com.anguomob.lib.utils.OKHttpUtils;
+import com.anguomob.lib.utils.SettingUtils;
 
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

@@ -14,11 +14,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.StringRes;
-import androidx.core.app.NotificationManagerCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,6 +24,11 @@ import android.widget.Toast;
 
 import java.lang.reflect.Field;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.StringRes;
+import androidx.core.app.NotificationManagerCompat;
 import es.dmoral.toasty.Toasty;
 
 /**
@@ -41,18 +41,18 @@ import es.dmoral.toasty.Toasty;
  */
 public final class ToastUtils {
 
-    private static final int     COLOR_DEFAULT = 0xFEFFFFFF;
-    private static final Handler HANDLER       = new Handler(Looper.getMainLooper());
-    private static final String NULL          = "null";
+    private static final int COLOR_DEFAULT = 0xFEFFFFFF;
+    private static final Handler HANDLER = new Handler(Looper.getMainLooper());
+    private static final String NULL = "null";
 
     private static IToast iToast;
-    private static int    sGravity     = -1;
-    private static int    sXOffset     = -1;
-    private static int    sYOffset     = -1;
-    private static int    sBgColor     = COLOR_DEFAULT;
-    private static int    sBgResource  = -1;
-    private static int    sMsgColor    = COLOR_DEFAULT;
-    private static int    sMsgTextSize = -1;
+    private static int sGravity = -1;
+    private static int sXOffset = -1;
+    private static int sYOffset = -1;
+    private static int sBgColor = COLOR_DEFAULT;
+    private static int sBgResource = -1;
+    private static int sMsgColor = COLOR_DEFAULT;
+    private static int sMsgTextSize = -1;
 
     private ToastUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
@@ -248,13 +248,14 @@ public final class ToastUtils {
     }
 
     private static void show(final CharSequence text, final int duration) {
-        if (RomUtil.isOppo()) {
-            Toasty.normal(Utils.getApp(), text).show();
-        }else {
-            HANDLER.post(new Runnable() {
-                @SuppressLint("ShowToast")
-                @Override
-                public void run() {
+
+        HANDLER.post(new Runnable() {
+            @SuppressLint("ShowToast")
+            @Override
+            public void run() {
+                if (RomUtil.isOppo()) {
+                    Toasty.normal(Utils.getApp(), text).show();
+                } else {
                     cancel();
                     iToast = ToastFactory.makeToast(Utils.getApp(), text, duration);
                     final TextView tvMessage = iToast.getView().findViewById(android.R.id.message);
@@ -270,8 +271,8 @@ public final class ToastUtils {
                     setBg(tvMessage);
                     iToast.show();
                 }
-            });
-        }
+            }
+        });
 
 
     }

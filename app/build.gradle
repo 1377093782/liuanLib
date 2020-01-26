@@ -46,5 +46,5 @@ dependencies {
 // implementation project(':ads')
     api 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
-    compile project(path: ':lib')
+    implementation project(path: ':lib')
 }

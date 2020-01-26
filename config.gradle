@@ -1,6 +1,6 @@
 ext {
-    publishVersion = '1.3.4'    //compile引用时的第3部分版本号
-    desc = '新增facebok广告 统一项目结构'//d项目描述
+    publishVersion = '1.3.8'    //compile引用时的第3部分版本号
+    desc = 'Toast 工具类 放到handler中run中'//d项目描述
 //    repoName="ycjiang"
     website = 'https://github.com/1377093782/liuanLib' //github 托管地址
 
@@ -10,4 +10,11 @@ ext {
     minSdkVersion = 16
     targetSdkVersion = 29
 
+//    是否需要升级
+    lib=true
+    ads=false
+    tran =false
+
+
 }
+

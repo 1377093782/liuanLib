@@ -35,6 +35,6 @@ allprojects {
 task clean(type: Delete) {
     delete buildDir
 }
-tasks.getByPath(":lib:bintrayUpload").enabled = rootProject.ext.lib // 假设saf-injectview需要升级，其他module不用升级
-tasks.getByPath(":ads:bintrayUpload").enabled = rootProject.ext.ads
-tasks.getByPath(":tran:bintrayUpload").enabled = rootProject.ext.tran
+tasks.getByPath(":lib:bintrayUpload").enabled = rootProject.lib.isUpdate // 假设saf-injectview需要升级，其他module不用升级
+tasks.getByPath(":ads:bintrayUpload").enabled = rootProject.ads.isUpdate
+tasks.getByPath(":tran:bintrayUpload").enabled = rootProject.tran.isUpdate

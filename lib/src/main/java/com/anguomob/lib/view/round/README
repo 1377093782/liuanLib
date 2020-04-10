@@ -1,0 +1,9 @@
+github 支持圆角矩形的库 https://github.com/H07000223/FlycoRoundView
+api 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+版本 1.1
+
+修改功能，支持 TextView enable 状态
+
+backgroundDisableColor
+strokeDisableColor
+textDisableColor

@@ -21,5 +21,19 @@
     android:layout_width="match_parent"
     android:id="@+id/am_five_star"
     android:layout_height="wrap_content" />
+ <com.anguomob.lib.view.round.RoundTextView
+     android:layout_width="200dp"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp"
+     android:ellipsize="end"
+     android:gravity="center"
+     android:maxLines="1"
+     android:padding="14dp"
+     android:text="您好"
+     app:rv_backgroundColor="#1900CAFF"
+     app:rv_cornerRadius="8dp"
+     android:textColor="@android:color/white"
+     android:textSize="13sp"
+     app:rv_textPressColor="#00CAFF" />
 
 </LinearLayout>

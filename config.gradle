@@ -20,14 +20,14 @@ ext {
             desc          : '新版发布'
     ]
     tran = [
-            isUpdate      : true,
+            isUpdate      : false,
             publishVersion: '1.0.0',
             desc          : '新版发布'
     ]
     lib = [
-            isUpdate      : false,
-            publishVersion: '1.3.8',
-            desc          : 'Toast 工具类 放到handler中run中'
+            isUpdate      : true,
+            publishVersion: '1.3.9',
+            desc          : '新增round 控件'
     ]
 }
 

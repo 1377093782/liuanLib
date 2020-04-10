@@ -73,7 +73,6 @@ dependencies {
     api 'com.android.support:multidex:1.0.3'
     api 'com.tencent:mmkv:1.0.18'
 
-    api 'com.google.firebase:firebase-analytics:17.2.2'
 
 
 }
